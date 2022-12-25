@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2022.Days
 {
-    internal abstract class BaseDay
+    public abstract class BaseDay
     {
         public string DayName { get; init; }
         public string[] InputLines { get; init; }

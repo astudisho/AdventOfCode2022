@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdventOfCode2022.Days.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,7 @@ namespace AdventOfCode2022.Days
 
                 var intersection = firstSet.Intersect(secondSet).First();
 
-                return GetPriorityValue(intersection);
+                return Day3Helper.GetPriorityValue(intersection);
             }).Sum()
             .ToString();
 
@@ -32,20 +33,29 @@ namespace AdventOfCode2022.Days
 
         public override string Solve2()
         {
-            throw new NotImplementedException();
-        }
+            var numberOfArrays = InputLines.Length / 3;
+            List<string[]> arraysList = new();
 
-        int GetPriorityValue(char value)
-        {
+            for (int i = 0; i < InputLines.Length; i += 3)
+            {
+                var array = InputLines.Skip(i)
+                    .Take(3)
+                    .ToArray();
+                arraysList.Add(array);
+            }
 
-            if(value >= 'A' && value <= 'Z')
+            var badgeSum = arraysList.Select(x =>
             {
-                return value - 'A' + 27;
-            }
-            else
-            {
-                return value - 'a' + 1;
-            }
+                var hashSets = x.Select(s => new HashSet<char>(s.ToCharArray()));
+
+                var badge = hashSets.Aggregate((a, b) => new HashSet<char>(a.Intersect(b))).First();
+
+                var badgePriority = Day3Helper.GetPriorityValue(badge);
+
+                return badgePriority;
+            }).Sum();
+
+            return badgeSum.ToString();
         }
     }
 }
