@@ -16,8 +16,13 @@ namespace AdventOfCode2022.Days
         {
             DayName = dayName;
 
-            var path = $"Inputs\\{dayName}";
-            InputLines = InputReader.GetInput(path).GetAwaiter().GetResult();
+            var path = $"Inputs\\{dayName}.txt";
+            InputLines = InputReader.GetInput(path)
+                .GetAwaiter()
+                .GetResult();
         }
+
+        public abstract string Solve1();
+        public abstract string Solve2();
     }
 }
