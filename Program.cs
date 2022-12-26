@@ -13,4 +13,9 @@ var day4 = new Day4();
 var day4Result1 = day4.Solve1();
 var day4Result2 = day4.Solve2();
 
+var day5 = new Day5();
+
+//var day5Result1 = day5.Solve1();
+var day5Result2 = day5.Solve2();
+
 Console.ReadLine();
