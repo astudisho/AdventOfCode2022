@@ -12,11 +12,13 @@ namespace AdventOfCode2022.Days
         public string DayName { get; init; }
         public string[] InputLines { get; init; }
 
-        public BaseDay(string dayName)
+        public BaseDay(string dayName, string containerDirectory = "Inputs")
         {
             DayName = dayName;
+            var dayNameFile = $"{dayName}.txt";
 
-            var path = $"Inputs\\{dayName}.txt";
+            var path = Path.Combine(containerDirectory, dayNameFile);
+
             InputLines = InputReader.GetInput(path)
                 .GetAwaiter()
                 .GetResult();
