@@ -8,8 +8,8 @@ namespace AdventOfCode2022.Days
 
         
 		public Day8()
-            : base(nameof(Day8), "Inputs/Test")
-            //: base(nameof(Day8))
+            //: base(nameof(Day8), "Inputs/Test")
+            : base(nameof(Day8))
 
         {
             
@@ -109,17 +109,20 @@ namespace AdventOfCode2022.Days
                     .Reverse()
                     .ToArray();
 
-                var leftView = leftArray.TakeWhile(x => x < array[pos]).Count();
+                var leftView = leftArray.TakeWhile(x => x < array[pos]).Count() + 1;
 
-                if (leftView == 0) leftView++;
+                if (leftView > leftArray.Count())
+                    leftView--;
 
                 // Check right.
                 var rightArray = array
                     .TakeLast(array.Count() - pos - 1)
                     .ToArray();
 
-                var rightView = rightArray.TakeWhile(x => x < array[pos]).Count();
-                if (rightView == 0) rightView++;
+                var rightView = rightArray.TakeWhile(x => x < array[pos]).Count() + 1;
+
+                if (rightView > rightArray.Count())
+                    rightView--;
 
                 return leftView * rightView;
             }
