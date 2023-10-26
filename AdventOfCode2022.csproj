@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="Inputs\Test\" />
+    <None Remove="Inputs\Test\Day9.2.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Inputs\Day3.txt">
@@ -29,9 +30,18 @@
     <None Update="Inputs\Day8.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Inputs\Test\Day9.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Inputs\Day9.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Inputs\Test\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Inputs\Test\Day9.2.txt" />
   </ItemGroup>
 </Project>

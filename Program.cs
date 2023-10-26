@@ -22,8 +22,8 @@ Console.WriteLine("Hello, World!");
 //var day6Result1 = day6.Solve1();
 //var day6Result2 = day6.Solve2();
 
-var day8 = new Day8();
+var day9 = new Day9();
 
-day8.Solve2();
+day9.Solve1();
 
 Console.ReadLine();
