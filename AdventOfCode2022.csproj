@@ -42,6 +42,8 @@
     <Folder Include="Inputs\Test\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Inputs\Test\Day9.2.txt" />
+    <Content Include="Inputs\Test\Day9.2.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>

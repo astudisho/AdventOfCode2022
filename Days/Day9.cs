@@ -7,9 +7,9 @@ namespace AdventOfCode2022.Days
 	public class Day9 : BaseDay
 	{
 		public Day9() 
-		//: base(nameof(Day9))
-        // : base(nameof(Day9), Path.Combine("Inputs", "Test"))
-        : base("Day9.2", Path.Combine("Inputs", "Test"))
+		: base(nameof(Day9))
+        //: base(nameof(Day9), Path.Combine("Inputs", "Test"))
+        //: base("Day9.2", Path.Combine("Inputs", "Test"))
         {
 
         }
@@ -28,7 +28,10 @@ namespace AdventOfCode2022.Days
             // Process.
             foreach (var instruction in instructions)
             {
-                visitedPositionsHashSet.UnionWith(ProcessMovement(instruction, headCurrentPosition, tailCurrentPosition));
+                //visitedPositionsHashSet = visitedPositionsHashSet
+                //   .Concat(ProcessMovement(instruction, headCurrentPosition, tailCurrentPosition))
+                //   .ToHashSet(new PositionComparer());
+                visitedPositionsHashSet.UnionWith(ProcessMovement(instruction, headCurrentPosition, tailCurrentPosition, visitedPositionsHashSet));
             }
 
             return visitedPositionsHashSet.Count.ToString();
@@ -36,7 +39,22 @@ namespace AdventOfCode2022.Days
 
         public override string Solve2()
         {
-            throw new NotImplementedException();
+            // Initialize.
+            Position[] headsPositions = Enumerable.Repeat(1, 10)
+                .Select(_ => new Position { x = 0, y = 0 })
+                .ToArray();
+
+            Position tailPosition = new Position { x = 0, y = 0 };
+
+            HashSet<Position> visitedPositionsHashSet = new(new PositionComparer()) { tailPosition };
+            var instructions = Day9Helper.GetInstructions(InputLines);
+
+            foreach (var instruction in instructions)
+            {
+                ProcessMovement(instruction, headsPositions, tailPosition, visitedPositionsHashSet);
+            }
+
+            return visitedPositionsHashSet.Count.ToString();
         }
     }
 }
