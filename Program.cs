@@ -22,9 +22,9 @@ Console.WriteLine("Hello, World!");
 //var day6Result1 = day6.Solve1();
 //var day6Result2 = day6.Solve2();
 
-var day9 = new Day9();
+var day10 = new Day10();
 
-//day9.Solve1();
-day9.Solve2();
+day10.Solve1();
+//day10.Solve2();
 
 Console.ReadLine();
