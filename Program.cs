@@ -24,7 +24,7 @@ Console.WriteLine("Hello, World!");
 
 var day10 = new Day10();
 
-day10.Solve1();
-//day10.Solve2();
+//day10.Solve1();
+day10.Solve2();
 
 Console.ReadLine();
