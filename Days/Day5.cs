@@ -22,6 +22,8 @@ namespace AdventOfCode2022.Days
                 new( new[] { 'D', 'T', 'Z', 'C', 'J', 'G', 'H', 'F' } ),
                 new( new[] { 'W', 'P', 'V', 'M', 'B', 'H', } ),
             };
+
+            QueueList = new();
         }
 
         public override string Solve1()
