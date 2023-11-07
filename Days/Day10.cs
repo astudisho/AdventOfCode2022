@@ -5,8 +5,6 @@ namespace AdventOfCode2022.Days
 {
 	public class Day10 : BaseDay
 	{
-        Instruction[] _instructions;
-
         public Day10()
             : base(nameof(Day10), "Inputs")
         {
